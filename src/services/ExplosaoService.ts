@@ -11,12 +11,25 @@ env;
     }
 
     async getToken(){
-
-        console.log(`Get entitled fields for user - multilanguage`);
         const response = await this.request.post(this.env.EXPLOSAO_URL+"/login", {
           data: {  	userName :"admin",
                     password:"1admin_explosao1" }
         });
         return response;
     }
-}3
+
+    async postClassroom(classroom:any, token:string){
+        const response = await this.request.post(this.env.EXPLOSAO_URL+"/classroom/", {
+          headers:{ authorization: "Bearer "+ token},
+          data: {  	classroomName: classroom.classroomName,
+            weekDay: classroom.weekDay,
+            classroomTime: classroom.classroomTime,
+            classroomEndTime: classroom.classroomEndTime,
+            professorName: classroom.professorName,
+            status: classroom.status,
+            id: classroom.id ?classroom.id : null}
+        });
+        console.log(response.status())
+        return response;
+    }
+}

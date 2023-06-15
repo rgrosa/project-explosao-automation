@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "debug-explosao": "npx playwright test -g @login"
+    "debug-explosao": "npx playwright test -g @login",
+    "debug-classroom": "npx playwright test -g @classroom",
+    "debug-ui": "npx playwright test --ui  "
   },
   "keywords": [],
   "author": "",
